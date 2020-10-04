@@ -15,7 +15,7 @@ i3blocks -V 2> /dev/null 1> /dev/null || (echo "i3blocks $yikes" && sudo pacman 
 pulseaudio --version 2> /dev/null 1> /dev/null || (echo "pulseaudio $yikes" && sudo pacman -S --noconfirm pulseaudio 1> /dev/null 2> /dev/null)
 
 echo "checking i3 or i3-gaps is installed..."
-i3 -v 2> /dev/null 1> /dev/null || (echo "i3-gaps $yikes" && sudo pacman -S --noconfirm i3-gaps && sudo pacman -S --noconfirm ttf-dejavu) 
+i3 -v 2> /dev/null 1> /dev/null || (echo "i3-gaps $yikes" && sudo pacman -S --noconfirm i3-gaps ttf-dejavu 1> /dev/null 2> /dev/null) 
 
 user=$(who | awk '{print $1}')
 echo "proceeding to create directories, copy and overwrite dotfiles"
