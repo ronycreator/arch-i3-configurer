@@ -22,9 +22,9 @@ i3 -v 2> /dev/null 1> /dev/null || (echo "i3-gaps $yikes" && sudo pacman -S --no
 
 user=$(who -m | awk '{print $1}')
 echo "proceeding to create directories, copy and overwrite dotfiles"
-ls /usr/share/i3blocks/ 1> /dev/null || sudo mkdir /usr/share/i3blocks
-ls /home/$user/.config/i3 1> /dev/null || mkdir /home/$user/.config/i3
-ls /home/$user/.config/rofi 1> /dev/null || mkdir /home/$user/.config/rofi
+ls /usr/share/i3blocks/ 2> /dev/null 1> /dev/null || sudo mkdir /usr/share/i3blocks
+ls /home/$user/.config/i3 2> /dev/null 1> /dev/null || mkdir /home/$user/.config/i3
+ls /home/$user/.config/rofi 2> /dev/null 1> /dev/null || mkdir /home/$user/.config/rofi
 sudo cp -r $PWD/dotfiles/blocks/* /usr/share/i3blocks
 sudo cp -r $PWD/dotfiles/i3blocks.conf /etc
 cp -r $PWD/dotfiles/config /home/$user/.config/i3
