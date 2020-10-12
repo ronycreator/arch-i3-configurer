@@ -20,7 +20,7 @@ Xorg -version 2> /dev/null 1> /dev/null || (echo "Xorg $yikes" && sudo pacman -S
 echo "checking i3 or i3-gaps is installed..."
 i3 -v 2> /dev/null 1> /dev/null || (echo "i3-gaps $yikes" && sudo pacman -S --noconfirm i3-gaps ttf-dejavu 1> /dev/null) 
 
-user=$(who -m | awk '{print $1}')
+user=$(who | awk 'NR==1 {print $1}')
 echo "proceeding to create directories, copy and overwrite dotfiles"
 ls /usr/share/i3blocks/ 2> /dev/null 1> /dev/null || sudo mkdir /usr/share/i3blocks
 ls /home/$user/.config/i3 2> /dev/null 1> /dev/null || mkdir /home/$user/.config/i3
