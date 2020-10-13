@@ -1,8 +1,13 @@
+# Check if command is running as root
 if [ "$EUID" -ne 0 ]
-  then echo "please run the script as root. with:         sudo bash start.sh"
+  then echo "Please start the script as root with: sudo ./start.sh"
   exit
 fi
-yikes="not installed, proceeding to install..."
+
+# Variable for commands below
+yikes="is not installed, proceeding to install..."
+
+# Check required packages and install them if necessary
 echo "Checking that all required packages are installed..."
 rofi -v 2> /dev/null 1> /dev/null || (echo "rofi $yikes" && sudo pacman -S --noconfirm rofi 1> /dev/null)
 awk -V 2> /dev/null 1> /dev/null || (echo "awk $yikes" && sudo pacman -S --noconfirm mawk 1> /dev/null)
@@ -14,22 +19,36 @@ dmenu -v 2> /dev/null 1> /dev/null || (echo "dmenu $yikes" && sudo pacman -S --n
 i3blocks -V 2> /dev/null 1> /dev/null || (echo "i3blocks $yikes" && sudo pacman -S --noconfirm i3blocks 1> /dev/null)
 pulseaudio --version 2> /dev/null 1> /dev/null || (echo "pulseaudio $yikes" && sudo pacman -S --noconfirm pulseaudio 1> /dev/null)
 
-echo "Checking if yer ha'st Xorg..."
+# More checking
+echo "Checking if Xorg is installed and installs if necessary"
 Xorg -version 2> /dev/null 1> /dev/null || (echo "Xorg $yikes" && sudo pacman -S --noconfirm xorg xorg-xinit xorg-twm xorg-xclock xterm 1> /dev/null)
 
-echo "checking i3 or i3-gaps is installed..."
-i3 -v 2> /dev/null 1> /dev/null || (echo "i3-gaps $yikes" && sudo pacman -S --noconfirm i3-gaps ttf-dejavu 1> /dev/null) 
+# More
+echo "Checking if i3 or i3-gaps is installed. i3-gaps is installed if there is none of them"
+i3 -v 2> /dev/null 1> /dev/null || (echo "i3-gaps $yikes" && sudo pacman -S --noconfirm --needed i3-gaps ttf-dejavu 1> /dev/null) 
 
-user=$(who | awk 'NR==1 {print $1}')
-echo "proceeding to create directories, copy and overwrite dotfiles"
-ls /usr/share/i3blocks/ 2> /dev/null 1> /dev/null || sudo mkdir /usr/share/i3blocks
+# Finds the user and store in a variable
+user=$(logname)
+
+# Copy dotfiles
+# Create directories
+echo "Creating directories to copy and overwrite dotfiles if do not exist"
+ls /home/$user/.config/i3blocks 2> /dev/null 1> /dev/null || mkdir /home/$user/.config/i3blocks
 ls /home/$user/.config/i3 2> /dev/null 1> /dev/null || mkdir /home/$user/.config/i3
 ls /home/$user/.config/rofi 2> /dev/null 1> /dev/null || mkdir /home/$user/.config/rofi
-sudo cp -r $PWD/dotfiles/blocks/* /usr/share/i3blocks
-sudo cp -r $PWD/dotfiles/i3blocks.conf /etc
+
+# Really copy dotfiles
+echo "Copying dotfiles to respective locations"
+cp -r $PWD/dotfiles/blocks/* /home/$user/.config/i3blocks
+cp -r $PWD/dotfiles/i3blocks.conf /home/$user/.config/i3blocks/config
 cp -r $PWD/dotfiles/config /home/$user/.config/i3
 cp -r $PWD/misc/HK.jpg /home/$user/.config/i3
 cp -r $PWD/dotfiles/config.rasi /home/$user/.config/rofi
 
-echo "done, proceeding to delete script and related garbage."
-rm -rf $PWD
+# Print instructions
+echo "To edit configs, start editing with your favorite editor ~/.config/i3/config and /home/$user/.config/i3blocks files. Check containing folders also to know the structure and do more things... Happy Ricing"
+
+# Deleting this cloned repo
+echo "NO"
+#echo "done, proceeding to delete script and related garbage."
+#rm -rf $PWD
