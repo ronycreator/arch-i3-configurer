@@ -28,6 +28,7 @@ echo "Checking if i3 or i3-gaps is installed. i3-gaps is installed if there is n
 i3 -v 2> /dev/null 1> /dev/null || (echo "i3-gaps $yikes" && sudo pacman -S --noconfirm --needed i3-gaps ttf-dejavu 1> /dev/null) 
 
 # Finds the user and store in a variable
+#Can alternatively use $(who -m | awk 'RN==1 {print $1})'
 user=$(logname)
 
 # Copy dotfiles
