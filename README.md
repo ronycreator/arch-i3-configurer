@@ -16,7 +16,8 @@ A brief description after install\
 us-intl keyboard layout to write symbols outside English language easier\
 Unnecesary code and i3blocks removed\
 Detect user command shorter\
-All dotfiles now uses ~/ (home) directories only instead of /etc and weird locations
+All dotfiles now uses ~/ (home) directories only instead of /etc and weird locations\
+thanks to ronycreator
 
 # To do
 Add a Notification Daemon to solve a bug that Electron apps freeze if they don't detect one [1]: https://github.com/i3/i3/issues/3130
