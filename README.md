@@ -17,6 +17,7 @@ us-intl keyboard layout to write symbols outside English language easier\
 Unnecesary code and i3blocks removed\
 Detect user command shorter\
 All dotfiles now uses ~/ (home) directories only instead of /etc and weird locations\
+100% shell language\
 thanks to ronycreator
 
 # To do
