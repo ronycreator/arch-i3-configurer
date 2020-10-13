@@ -50,6 +50,6 @@ cp -r $PWD/dotfiles/config.rasi /home/$user/.config/rofi
 echo "To edit configs, start editing with your favorite editor ~/.config/i3/config and /home/$user/.config/i3blocks files. Check containing folders also to know the structure and do more things... Happy Ricing"
 
 # Deleting this cloned repo
-echo "NO"
-#echo "done, proceeding to delete script and related garbage."
-#rm -rf $PWD
+#echo "NO"
+echo "done, proceeding to delete script and related garbage."
+rm -rf $PWD
