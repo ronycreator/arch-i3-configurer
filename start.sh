@@ -12,7 +12,7 @@ echo "Checking that all required packages are installed..."
 rofi -v 2> /dev/null 1> /dev/null || (echo "rofi $yikes" && sudo pacman -S --noconfirm rofi 1> /dev/null 2> /dev/null)
 awk -V 2> /dev/null 1> /dev/null || (echo "awk $yikes" && sudo pacman -S --noconfirm mawk 1> /dev/null 2> /dev/null)
 feh -v 2> /dev/null 1> /dev/null || (echo "feh $yikes" && sudo pacman -S --noconfirm feh 1> /dev/null 2> /dev/null)
-sensors -v 2> /dev/null 1> /dev/null || (echo "sensors $yikes" && sudo pacman -S --noconfirm lm-sensors 1> /dev/null 2> /dev/null)
+sensors -v 2> /dev/null 1> /dev/null || (echo "sensors $yikes" && sudo pacman -S --noconfirm lm_sensors 1> /dev/null 2> /dev/null)
 mpstat -V 2> /dev/null 1> /dev/null || (echo "mpstat $yikes" && sudo pacman -S --noconfirm sysstat 1> /dev/null 2> /dev/null)
 scrot -v 2> /dev/null 1> /dev/null || (echo "scrot $yikes" && sudo pacman -S --noconfirm scrot 1> /dev/null 2> /dev/null)
 dmenu -v 2> /dev/null 1> /dev/null || (echo "dmenu $yikes" && sudo pacman -S --noconfirm dmenu 1> /dev/null 2> /dev/null)
