@@ -40,8 +40,9 @@ ls /home/$user/.config/i3 2> /dev/null 1> /dev/null || mkdir -p /home/$user/.con
 ls /home/$user/.config/rofi 2> /dev/null 1> /dev/null || mkdir -p /home/$user/.config/rofi
 ls /home/$user/.config/dunst 2> /dev/null 1> /dev/null || mkdir -p /home/$user/.config/dunst
 
-# Really copy dotfiles
+# Really writing to dotfiles
 echo "Copying dotfiles to respective locations"
+echo "exec i3" >> /home/$user/.xinitrc
 cp -r $PWD/dotfiles/blocks/* /home/$user/.config/i3blocks
 cp -r $PWD/dotfiles/i3blocks.conf /home/$user/.config/i3blocks/config
 cp -r $PWD/dotfiles/config /home/$user/.config/i3
