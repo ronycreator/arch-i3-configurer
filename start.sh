@@ -18,6 +18,7 @@ scrot -v 2> /dev/null 1> /dev/null || (echo "scrot $yikes" && sudo pacman -S --n
 dmenu -v 2> /dev/null 1> /dev/null || (echo "dmenu $yikes" && sudo pacman -S --noconfirm dmenu 1> /dev/null)
 i3blocks -V 2> /dev/null 1> /dev/null || (echo "i3blocks $yikes" && sudo pacman -S --noconfirm i3blocks 1> /dev/null)
 pulseaudio --version 2> /dev/null 1> /dev/null || (echo "pulseaudio $yikes" && sudo pacman -S --noconfirm pulseaudio 1> /dev/null)
+dunst -v 2> /dev/null 1> /dev/null || (echo "dunst $yikes" && sudo pacman -S --noconfirm dunst 1> /dev/null)
 
 # More checking
 echo "Checking if Xorg is installed and installs if necessary"
@@ -37,6 +38,7 @@ echo "Creating directories to copy and overwrite dotfiles if do not exist"
 ls /home/$user/.config/i3blocks 2> /dev/null 1> /dev/null || mkdir /home/$user/.config/i3blocks
 ls /home/$user/.config/i3 2> /dev/null 1> /dev/null || mkdir /home/$user/.config/i3
 ls /home/$user/.config/rofi 2> /dev/null 1> /dev/null || mkdir /home/$user/.config/rofi
+ls /home/$user/.config/dunst 2> /dev/null 1> /dev/null || mkdir /home/$user/.config/dunst
 
 # Really copy dotfiles
 echo "Copying dotfiles to respective locations"
@@ -45,6 +47,7 @@ cp -r $PWD/dotfiles/i3blocks.conf /home/$user/.config/i3blocks/config
 cp -r $PWD/dotfiles/config /home/$user/.config/i3
 cp -r $PWD/misc/HK.jpg /home/$user/.config/i3
 cp -r $PWD/dotfiles/config.rasi /home/$user/.config/rofi
+cp -r $PWD/dotfiles/dunstrc /home/$user/.config/dunst
 
 # Print instructions
 echo "To edit configs, start editing with your favorite editor ~/.config/i3/config and /home/$user/.config/i3blocks files. Check containing folders also to know the structure and do more things... Happy Ricing"

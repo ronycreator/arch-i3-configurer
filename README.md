@@ -21,5 +21,4 @@ All dotfiles now uses ~/ (home) directories only instead of /etc and weird locat
 thanks to ronycreator
 
 # To do
-Add a Notification Daemon to solve a bug that Electron apps freeze if they don't detect one [1]: https://github.com/i3/i3/issues/3130
 Add screenshots to this file
