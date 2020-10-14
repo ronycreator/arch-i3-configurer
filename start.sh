@@ -22,7 +22,7 @@ dunst -v 2> /dev/null 1> /dev/null || (echo "dunst $yikes" && sudo pacman -S --n
 
 # More checking
 echo "Checking if Xorg is installed and installs if necessary"
-Xorg -version 2> /dev/null 1> /dev/null || (echo "Xorg $yikes" && sudo pacman -S --noconfirm xorg xorg-xinit xorg-twm xorg-xclock xterm 1> /dev/null 2> /dev/null)
+Xorg -version 2> /dev/null 1> /dev/null || (echo "Xorg $yikes" && sudo pacman -S --noconfirm xorg xorg-xinit xorg-twm xorg-xclock xterm 1> /dev/null 2> /dev/null && echo "exec i3" >> /home/$user/.xinitrc)
 
 # More
 echo "Checking if i3 or i3-gaps is installed. i3-gaps is installed if there is none of them"
@@ -42,7 +42,6 @@ ls /home/$user/.config/dunst 2> /dev/null 1> /dev/null || mkdir -p /home/$user/.
 
 # Really writing to dotfiles
 echo "Copying dotfiles to respective locations"
-echo "exec i3" >> /home/$user/.xinitrc
 cp -r $PWD/dotfiles/blocks/* /home/$user/.config/i3blocks
 cp -r $PWD/dotfiles/i3blocks.conf /home/$user/.config/i3blocks/config
 cp -r $PWD/dotfiles/config /home/$user/.config/i3
