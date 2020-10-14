@@ -42,7 +42,7 @@ ls /home/$user/.config/dunst 2> /dev/null 1> /dev/null || mkdir -p /home/$user/.
 
 # Really writing to dotfiles
 echo "Copying dotfiles to respective locations"
-cp -r $PWD/dotfiles/blocks/* /home/$user/.config/i3blocks
+cp -r $PWD/dotfiles/blocks/* /home/$user/.config/i3blocks && chmod 777 /home/$user/.config/i3blocks/memory
 cp -r $PWD/dotfiles/i3blocks.conf /home/$user/.config/i3blocks/config
 cp -r $PWD/dotfiles/config /home/$user/.config/i3
 cp -r $PWD/misc/HK.jpg /home/$user/.config/i3
