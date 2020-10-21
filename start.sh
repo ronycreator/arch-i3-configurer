@@ -19,6 +19,7 @@ dmenu -v 2> /dev/null 1> /dev/null || (echo "dmenu $yikes" && sudo pacman -S --n
 i3blocks -V 2> /dev/null 1> /dev/null || (echo "i3blocks $yikes" && sudo pacman -S --noconfirm i3blocks 1> /dev/null 2> /dev/null)
 pulseaudio --version 2> /dev/null 1> /dev/null || (echo "pulseaudio $yikes" && sudo pacman -S --noconfirm pulseaudio 1> /dev/null 2> /dev/null)
 dunst -v 2> /dev/null 1> /dev/null || (echo "dunst $yikes" && sudo pacman -S --noconfirm dunst 1> /dev/null 2> /dev/null)
+konsole -v 2> /dev/null 1> /dev/null || (echo "konsole $yikes" && sudo pacman -S --noconfirm konsole 1> /dev/null 2> /dev/null)
 
 # More checking
 echo "Checking if Xorg is installed and installs if necessary"
