@@ -22,7 +22,7 @@ dunst -v 2> /dev/null 1> /dev/null || (echo "dunst $yikes" && sudo pacman -S --n
 
 # More checking
 echo "Checking if Xorg is installed and installs if necessary"
-Xorg -version 2> /dev/null 1> /dev/null || (echo "Xorg $yikes" && sudo pacman -S --noconfirm xorg xorg-xinit xorg-twm xorg-xclock xterm 1> /dev/null 2> /dev/null && echo "exec i3" >> /home/$user/.xinitrc)
+ps -e | grep X 2> /dev/null 1> /dev/null || X -v 2> /dev/null 1> /dev/null || (echo "Xorg $yikes" && sudo pacman -S --noconfirm xorg xorg-xinit xorg-twm xorg-xclock xterm 1> /dev/null 2> /dev/null && echo "exec i3" >> /home/$user/.xinitrc)
 
 # More
 echo "Checking if i3 or i3-gaps is installed. i3-gaps is installed if there is none of them"
