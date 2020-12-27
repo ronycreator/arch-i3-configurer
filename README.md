@@ -1,24 +1,19 @@
 # Arch-i3-configurer
 
-This script will configure an i3 instalation in Arch based distro, like Manjaro; Dark theme and a basic set of config files included.
+# WARNING: This project is not finished. Don't try to run the start script, but you can copy the files manually if you want
+This script will configure an i3 instalation in any Arch based distro; It is meant to be powerful but without fancy configuration
 
-all keybinding, configuration files and else can be found after instalation in:\
+It mantains i3 defaults keybinds to make easier getting started
 ~/.config/i3\
-~/.config/rofi\
 ~/.config/i3blocks
 
 ### Must be run as sudo to work
 
-# Features added
-Better commented code\
-Little corrections. For example, fixed a bug that cause a package installs twice\
-A brief description after install\
+# Features (some are not finished)
+Good commented code to help new i3 users\
+The script takes care for all to lazy people\
 us-intl keyboard layout to write symbols outside English language easier\
-Unnecesary code and i3blocks removed\
-Detect user command shorter\
-All dotfiles now uses ~/ (home) directories only instead of /etc and weird locations\
-100% shell language\
-thanks to ronycreator
+All dotfiles uses ~/ (home) directories only instead of /etc and weird locations\
 
-## The script should leave an i3 configuration looking like this:
-![what the script should generate](https://github.com/Genghius/arch-i3-configurer/blob/master/i3configurerresult.png)
+## The script should leave an i3 configuration looking like this (this is what it looks now):
+![what the script should generate](https://github.com/ronycreator/arch-i3-configurer/blob/master/results.png)

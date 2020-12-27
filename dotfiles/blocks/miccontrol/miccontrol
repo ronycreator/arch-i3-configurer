@@ -1,6 +1,7 @@
 #!/bin/bash
-# Copyright (C) 2014 Julien Bonjean <julien@bonjean.info>
-
+#
+# Copyright © 2020 Filip Paskali
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -15,9 +16,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 case $BLOCK_BUTTON in
-        3) rofi -combi-modi window,drun,ssh -width 17 -show combi -e "$(ps axch -o cmd:15,%mem --sort=-%mem | head)" ;;
+	1|3) pactl set-source-mute  $SOURCE toggle ;;
 esac
 
-memory=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
-
-echo $memory
+case $(pacmd list-sources | grep -A 11 "$SOURCE" | awk '/muted/ {print $2; exit}') in
+    yes)
+      echo ""
+      ;;
+    no)
+      echo ""
+      ;;
+esac
